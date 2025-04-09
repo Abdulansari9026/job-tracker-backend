@@ -12,10 +12,15 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Root route
+app.get('/', (req, res) => {
+  res.send('API is running 🚀');
+});
+
+// API Routes
 app.use('/api/jobs', jobRoutes);
 
-// Server start
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
